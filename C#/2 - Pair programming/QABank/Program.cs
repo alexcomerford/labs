@@ -10,7 +10,7 @@ namespace QABank
     {
         static void Main(string[] args)
         {
-            BankAccount b1 = new BankAccount("Alex Comerford",10, 100.50);
+            BankAccount b1 = new BankAccount("Alex Comerford", 10, 100.50);
 
             BankAccount b2 = new BankAccount("James Smith", 500.50);
 
@@ -18,6 +18,10 @@ namespace QABank
             b1.Display();
             b2.Display();
             b3.Display();
+
+            SavingsAccount s1 = new SavingsAccount("Alan Capper", 70);
+
+            s1.Display();
             Console.ReadLine();
         }
     }
@@ -27,7 +31,10 @@ namespace QABank
         string Customer;
         public int AccountNumber = 100000;
         double Balance;
-
+        public BankAccount()
+        {
+            
+        }
         public BankAccount(string customer, int accountnumber, double balance)
         {
             Customer = customer;
@@ -54,6 +61,31 @@ namespace QABank
         public void Display()
         {
             Console.WriteLine("Name: " + Customer + " Account Number: " + AccountNumber + " Balance: " + Balance);
+        }
+    }
+    class CurrentAccount : BankAccount
+    {
+        public int OverdraftLimit = 35000;
+
+        public CurrentAccount(string customer, double balance)
+        {
+            
+        }
+    }
+
+    class SavingsAccount: BankAccount
+    {
+        public SavingsAccount(string customer, double balance)
+        {
+
+        }
+        public void AddInterest()
+        {
+
+            double interestrate;
+            {
+
+            }
         }
     }
 
