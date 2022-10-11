@@ -18,11 +18,11 @@ namespace UnitTests
 
         ~CalculatorTests()
         {
-
+           
         }
 
         [Test]
-        public void subtractTest()
+        public void SubtractWithPositiveNumber()
         {
             var calculator = new Calculator();
             int expected = 2;
@@ -31,7 +31,7 @@ namespace UnitTests
         }
 
         [Test]
-        public void subtract2Test()
+        public void SubtractWithNegativeNumber()
         {
             var calculator = new Calculator();
             int expected = -8;
@@ -40,7 +40,7 @@ namespace UnitTests
         }
 
         [Test]
-        public void subtract3Test()
+        public void SubtractWithPositiveNumber2()
         {
             var calculator = new Calculator();
             int expected = 2;
@@ -49,7 +49,7 @@ namespace UnitTests
         }
 
         [Test]
-        public void divide()
+        public void DivideWithPositiveNumber()
         {
             var calculator = new Calculator();
             int expected = 5;
@@ -57,7 +57,7 @@ namespace UnitTests
             Assert.AreEqual(expected, actual);
         }
         [Test]
-        public void divide2()
+        public void DivideWithNegativeNumber()
         {
             var calculator = new Calculator();
             int expected = -5;
@@ -65,7 +65,7 @@ namespace UnitTests
             Assert.AreEqual(expected, actual);
         }
         [Test]
-        public void multiply()
+        public void MultiplyWithPositiveNumber()
         {
             var calculator = new Calculator();
             int expected = 50;
@@ -73,7 +73,7 @@ namespace UnitTests
             Assert.AreEqual(expected, actual);
         }
         [Test]
-        public void multiply2()
+        public void MultiplyWithPositiveNumber2()
         {
             var calculator = new Calculator();
             int expected = 600;
@@ -82,7 +82,7 @@ namespace UnitTests
         }
 
         [Test]
-        public void dividewithsomeexception()
+        public void DivideWithZeroException()
         {
             var calculator = new Calculator();
             Assert.Throws<DivideByZeroException>(() => calculator.Divide("10,0"));

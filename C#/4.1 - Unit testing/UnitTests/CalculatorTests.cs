@@ -14,8 +14,30 @@ namespace UnitTests
         [Test]
         public void Subtract_ValidString_CalculatesResult()
         {
-            Assert.Pass();
-            //Assert.Fail("Not yet implemented...");
+            Calculator c1 = new Calculator();            
+            Assert.AreEqual(10, c1.Subtract("50,40"));
+           
+        }
+        [Test]
+        public void Multiply_ValidString_CalculatesResult()
+        {
+            Calculator c1 = new Calculator();
+            Assert.AreEqual(100, c1.Multiply("10,10"));
+            
+        }
+        [Test]
+        public void Divide_ValidString_CalculatesResult()
+        {
+            Calculator c1 = new Calculator();
+            Assert.AreEqual(5, c1.Divide("50,10"));
+
+        }
+        [Test]
+        public void Divide_ByZero_CalculatesResult()
+        {
+            Calculator c1 = new Calculator();
+            Assert.AreEqual(Expected,c1.Divide("50,0");
+
         }
     }
 }

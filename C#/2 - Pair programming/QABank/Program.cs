@@ -21,6 +21,10 @@ namespace QABank
 
             SavingsAccount s1 = new SavingsAccount("Alan Capper", 70);
 
+            Test t1 = new Test();
+
+            Console.WriteLine(t1.Add(5, 5));
+
             s1.Display();
             Console.ReadLine();
         }
@@ -57,6 +61,7 @@ namespace QABank
         {
             return (int)(Balance - amount);
         }
+       
 
         public void Display()
         {
@@ -86,6 +91,13 @@ namespace QABank
             {
 
             }
+        }
+    }
+    class Test
+    {
+        public int Add(int a, int b)
+        {
+            return a + b;
         }
     }
 
