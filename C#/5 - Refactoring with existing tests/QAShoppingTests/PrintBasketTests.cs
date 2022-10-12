@@ -10,6 +10,7 @@ namespace QAShoppingTests
         dynamic item1, item2, item3;
         dynamic basket;
         double vatRate = 1.2;
+        
 
         [SetUp]
         public void SetUp()
@@ -18,24 +19,29 @@ namespace QAShoppingTests
             item2 = new { _id = 2, _name = "Test name longer than 15", _price = 0.75, _vat = false };
             item3 = new { _id = 3, _name = "Test", _price = 1.99, _vat = true };
             basket = new dynamic[] { item1, item2, item3 };
+
+        
+
+
         }
 
         [Test]
-        public void ShouldPrintAHeaderRowForTheBasket()
+        public void PrintHeaderRowInBasket()
+
         {
             string actual = Basket.PrintBasket(basket);
             StringAssert.Contains("Item Name\t\t\tPrice\n", actual);
         }
 
         [Test]
-        public void Should_print_the_item_name()
+        public void PrintItemName()
         {
             string actual = Basket.PrintBasket(basket);
             StringAssert.Contains($"{item1._name}", actual);
         }
 
         [Test]
-        public void Should_print_3_tabs_after_the_item_name_if_its_less_than_16_in_length()
+        public void Print_3_tabs_if_name_less_than_16_characters()
         {
             string actual = Basket.PrintBasket(basket);
             StringAssert.Contains($"{item1._name}\t\t\t", actual);
@@ -57,7 +63,7 @@ namespace QAShoppingTests
         }
 
         [Test]
-        public void Should_add_the_vat_to_the_item_price_if_vat_is_true()
+        public void AddVatToPrice()
         {
             string actual = Basket.PrintBasket(basket);
             StringAssert.Contains($"{(item3._price * vatRate):0.00}", actual);
@@ -78,21 +84,21 @@ namespace QAShoppingTests
         }
 
         [Test]
-        public void Should_only_print_the_name_and_price_on_a_row()
+        public void PrintNameAndPriceOnRow()
         {
             string actual = Basket.PrintBasket(basket);
             StringAssert.Contains("Test\t\t\t123.40\n", actual);
         }
 
         [Test]
-        public void Should_print_a_newline_and_3_tabs_before_the_text_total_and_a_tab_after_it()
+        public void PrintNewlineAnd3Tabs_before_the_text_total_and_a_tab_after_it()
         {
             string actual = Basket.PrintBasket(basket);
             StringAssert.Contains("\n\t\t\tTotal\t", actual);
         }
 
         [Test]
-        public void Should_print_a_total_of_the_basket()
+        public void PrintTotalOfBasket()
         {
             double basketTotal = item1._price + item2._price + Math.Round((item3._price * vatRate), 2);
             string actual = Basket.PrintBasket(basket);
